@@ -19,15 +19,16 @@ void blend_map(double *dest, double *a, double *b, int size, int blend)
 {
     int i = 0;
     
-    for (i = 0; i < size; i++) {
-        if (blend == 255) {
-            dest[i] = a[i];
-        } else if (blend == 0) {
-            dest[i] = b[i];
-        } else {
-            dest[i] = a[i] * blend + b[i] * (255 - blend) / 256.0;
-        }
-    }
+    if ( blend == 255 )
+    	for (i = 0; i < size; i++)
+    		dest[i] = a[i];
+    else if ( blend == 0 )
+	for (i = 0; i < size; i++)
+		dest[i] = b[i];
+    else 
+	for (i = 0; i < size; i++)
+		dest[i] = a[i] * blend + b[i] * (255 - blend) / 256.0;
+    
 }
 
 int main()
