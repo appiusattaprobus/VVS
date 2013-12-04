@@ -33,9 +33,9 @@ float vmin_sse(float *v, int n)
 	for(i=0;i<n/4;i++)
 		minval = _mm_min_ps(minval, f4[i]);
 	/* Horisontal min */
-	minval = _mm_min_ps(minval, _mm_shuffle_ps(minval, minval, 136));
-	minval = _mm_min_ps(minval, _mm_shuffle_ps(minval, minval, 136));
-	minval = _mm_min_ps(minval, _mm_shuffle_ps(minval, minval, 136));
+	minval = _mm_min_ps(minval, _mm_shuffle_ps(minval, minval, 0x93));
+	minval = _mm_min_ps(minval, _mm_shuffle_ps(minval, minval, 0x93));
+	minval = _mm_min_ps(minval, _mm_shuffle_ps(minval, minval, 0x93));
 	_mm_store_ss(&res, minval);
     return res;
 }
