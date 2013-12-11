@@ -28,7 +28,7 @@ float vmin_sse(float *v, int n)
 	int i;
 	float res;
 	__m128 *f4 = (__m128 *)v;
-	__m128 minval = _mm_setzero_ps();
+	__m128 minval = _mm_set_ps(FLT_MAX);
 
 	for(i=0;i<n/4;i++)
 		minval = _mm_min_ps(minval, f4[i]);
